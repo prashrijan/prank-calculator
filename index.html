@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prank - Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="wrapper">
+      <div class="calculator-container">
+        <div class="display">
+          <input type="text" readonly />
+        </div>
+
+        <div class="buttons">
+          <div class="first-row grid">
+            <button class="button" id="allClear">AC</button>
+            <button class="button" id="clear">C</button>
+            <button class="button" id="percentage">%</button>
+            <button class="button" id="divide">/</button>
+          </div>
+          <div class="second-row grid">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button" id="multiply">X</button>
+          </div>
+          <div class="third-row grid">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button" id="subtract">-</button>
+          </div>
+          <div class="fourth-row grid">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button" id="add">+</button>
+          </div>
+          <div class="fifth-row grid">
+            <button class="button">0</button>
+            <button class="button" id="decimal">.</button>
+            <button class="button" id="equalTo">=</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
