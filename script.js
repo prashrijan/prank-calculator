@@ -18,6 +18,10 @@ const display = (str) => {
   input.innerText = str || "0.00";
 };
 
+const slice = () => {
+  return strToDisplay.slice(0, -1);
+};
+
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const buttonValue = e.target.innerText;
@@ -29,29 +33,34 @@ buttons.forEach((button) => {
     }
 
     let lastChar = strToDisplay[strToDisplay.length - 1];
+
+    // calculate if the lastChar is not an operator
     if (buttonValue === "=") {
       if (operations.includes(lastChar)) {
-        strToDisplay = strToDisplay.slice(0, -1);
+        strToDisplay = slice();
       }
       return calculate();
     }
 
     if (buttonValue === "C") {
-      strToDisplay = strToDisplay.slice(0, -1);
+      strToDisplay = slice();
       return display(strToDisplay);
     }
 
+    // if the pressed value is operator change the last operator and if the last char is again a operator than slice it
     if (operations.includes(buttonValue)) {
       lastOperator = buttonValue;
       if (operations.includes(lastChar)) {
-        strToDisplay = strToDisplay.slice(0, -1);
+        strToDisplay = slice();
       }
     }
 
     if (buttonValue === ".") {
+      // get the last opertor index
       let lastOperatorIndex = strToDisplay.lastIndexOf(lastOperator);
 
-      let lastNumberSet = strToDisplay.slice(lastOperatorIndex);
+      // slice the number set from last opertor index to the end
+      let lastNumberSet = strToDisplay.slice(lastOperatorIndex + 1);
 
       if (lastNumberSet.includes(".")) return;
 
