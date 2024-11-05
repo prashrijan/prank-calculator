@@ -1,10 +1,3 @@
-// Create a function to get the value out of the button
-// Add Event Listener to the buttons when clicked to trigger the function
-// Read the value of the button
-// Store all values in global varibale
-// Create a function that will take the value from global variable and displays in the display element
-
-// Select all the buttons
 const buttons = document.querySelectorAll(".button");
 const input = document.querySelector(".input");
 
@@ -139,8 +132,6 @@ document.addEventListener("keydown", (e) => {
     "?",
     "|",
   ];
-
-  console.log(e);
 
   if (e.code.includes("Key") || ignoredKeys.includes(val)) return;
   calcOperations(val);
