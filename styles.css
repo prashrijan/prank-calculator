@@ -81,7 +81,7 @@ body {
 }
 
 .button {
-  padding: 1rem 2rem;
+  padding: 1rem 1.3rem;
   border: none;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -142,8 +142,11 @@ footer p {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 460px) {
   .calculator-container {
-    width: 90%;
+    width: 24rem;
+  }
+  .button {
+    font-size: 1.1rem;
   }
 }

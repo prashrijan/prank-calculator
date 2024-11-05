@@ -63,19 +63,23 @@ const slice = () => {
 };
 
 const calculate = () => {
-  if (!strToDisplay) return;
+  try {
+    if (!strToDisplay) return;
 
-  const randomValue = randomNumber();
+    const randomValue = randomNumber();
 
-  const result = eval(strToDisplay) + randomValue;
+    const result = eval(strToDisplay) + randomValue;
 
-  console.log(randomValue);
-  if (randomValue > 0) {
-    audio.play();
-    input.classList.add("prank");
+    console.log(randomValue);
+    if (randomValue > 0) {
+      audio.play();
+      input.classList.add("prank");
+    }
+    strToDisplay = result.toString();
+    display(result);
+  } catch (error) {
+    alert("Invalid Expression");
   }
-  strToDisplay = result.toString();
-  display(result);
 };
 
 const randomNumber = () => {
