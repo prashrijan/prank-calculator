@@ -10,6 +10,8 @@ const input = document.querySelector(".input");
 
 const operations = ["+", "-", "*", "/", "%"];
 
+let lastOperator = "";
+
 let strToDisplay = "";
 
 const display = (str) => {
@@ -26,9 +28,8 @@ buttons.forEach((button) => {
       return;
     }
 
+    let lastChar = strToDisplay[strToDisplay.length - 1];
     if (buttonValue === "=") {
-      const lastChar = strToDisplay[strToDisplay.length - 1];
-
       if (operations.includes(lastChar)) {
         strToDisplay = strToDisplay.slice(0, -1);
       }
@@ -40,12 +41,21 @@ buttons.forEach((button) => {
       return display(strToDisplay);
     }
 
-    let lastChar = strToDisplay[strToDisplay.length - 1];
-
-    if (operations.includes(lastChar)) {
-      if (operations.includes(buttonValue)) {
+    if (operations.includes(buttonValue)) {
+      lastOperator = buttonValue;
+      if (operations.includes(lastChar)) {
         strToDisplay = strToDisplay.slice(0, -1);
       }
+    }
+
+    if (buttonValue === ".") {
+      let lastOperatorIndex = strToDisplay.lastIndexOf(lastOperator);
+
+      let lastNumberSet = strToDisplay.slice(lastOperatorIndex);
+
+      if (lastNumberSet.includes(".")) return;
+
+      if (!lastOperator && strToDisplay.includes(".")) return;
     }
 
     strToDisplay += buttonValue;
