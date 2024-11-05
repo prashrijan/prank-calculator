@@ -13,6 +13,7 @@ const operations = ["+", "-", "*", "/", "%"];
 let lastOperator = "";
 
 let strToDisplay = "";
+const audio = new Audio("./assets/aa.wav");
 
 const display = (str) => {
   input.innerText = str || "0.00";
@@ -26,6 +27,7 @@ buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const buttonValue = e.target.innerText;
 
+    input.classList.remove("prank");
     if (buttonValue === "AC") {
       strToDisplay = "";
       display(strToDisplay);
@@ -75,7 +77,25 @@ buttons.forEach((button) => {
 const calculate = () => {
   if (!strToDisplay) return;
 
-  const result = eval(strToDisplay);
+  const randomValue = randomNumber();
+
+  const result = eval(strToDisplay) + randomValue;
+
+  console.log(randomValue);
+  if (randomValue > 0) {
+    audio.play();
+    input.classList.add("prank");
+  }
   strToDisplay = result.toString();
   display(result);
 };
+
+const randomNumber = () => {
+  const num = Math.floor(Math.random() * 10);
+
+  return num < 5 ? num : 0;
+};
+document.addEventListener("keydown", (e) => {
+  if (e.key === "AC") {
+  }
+});
