@@ -136,6 +136,7 @@ document.addEventListener("keydown", (e) => {
     "?",
     "|",
   ];
+  input.classList.remove("prank");
 
   if (e.code.includes("Key") || ignoredKeys.includes(val)) return;
   calcOperations(val);
