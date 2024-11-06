@@ -4,6 +4,7 @@ const display = document.querySelector(".input");
 let strToDisplay = "";
 let lastOperator = "";
 let operators = ["+", "-", "/", "*", "%"];
+let prankAudio = new Audio("./assets/prank-sound.mp3");
 
 const appendToDisplay = (str) => {
   return (display.innerText = str || "0.00");
@@ -20,7 +21,14 @@ const removeLastChar = (str) => {
 
 const calculate = (str) => {
   try {
-    let result = eval(str);
+    let randomVal = generateRandomNumber();
+
+    if (randomVal > 0) {
+      display.classList.add("prank");
+      prankAudio.play();
+    }
+
+    let result = eval(str) + randomVal;
     strToDisplay = result;
     appendToDisplay(strToDisplay);
     return result;
@@ -29,10 +37,17 @@ const calculate = (str) => {
   }
 };
 
+const generateRandomNumber = () => {
+  let randomNum = Math.floor(Math.random() * 10);
+
+  return randomNum < 5 ? randomNum : 0;
+};
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const val = button.innerText;
     let lastChar = strToDisplay[strToDisplay.length - 1];
+    display.classList.remove("prank");
 
     if (val === "AC") {
       clearDisplay();
