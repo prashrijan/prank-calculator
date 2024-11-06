@@ -4,7 +4,7 @@ const display = document.querySelector(".input");
 let strToDisplay = "";
 let lastOperator = "";
 let operators = ["+", "-", "/", "*", "%"];
-let prankAudio = new Audio("./assets/prank-sound.mkv");
+let prankAudio = new Audio("./assets/prank-sound.mp3");
 
 const appendToDisplay = (str) => {
   return (display.innerText = str || "0.00");
@@ -47,7 +47,7 @@ const allOperations = (val) => {
   display.classList.remove("prank");
   9;
   let lastChar = strToDisplay[strToDisplay.length - 1];
-  if (val === "AC" || val === "Delete") {
+  if (val === "AC" || val === "Delete12") {
     clearDisplay();
     return;
   }
