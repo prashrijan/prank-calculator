@@ -47,7 +47,7 @@ const allOperations = (val) => {
   display.classList.remove("prank");
   9;
   let lastChar = strToDisplay[strToDisplay.length - 1];
-  if (val === "AC") {
+  if (val === "AC" || val === "Delete") {
     clearDisplay();
     return;
   }
@@ -105,6 +105,7 @@ document.addEventListener("keydown", (e) => {
     "%",
     "Enter",
     "Backspace",
+    "Delete",
     ".",
   ];
 

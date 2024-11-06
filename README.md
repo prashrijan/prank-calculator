@@ -23,7 +23,7 @@ This project is a "Prank Calculator" that resembles a standard calculator but ad
 
 ## Live Demo
 
-[Click here to view the Prank Calculator live](https://prashrijan.github.io/prank-calculator/) <!-- Replace "#" with the actual URL once hosted -->
+[Click here to view the Prank Calculator live](https://prashrijan.github.io/prank-calculator/)
 
 ## Prank Mode Details
 
