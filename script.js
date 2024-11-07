@@ -23,9 +23,9 @@ const calculate = (str) => {
   try {
     let randomVal = generateRandomNumber();
 
-    let result = eval(str) + randomVal;
+    let result = new Function("return " + str)() + randomVal;
 
-    if (isNaN(result)) return;
+    if (!Number.isFinite(result)) return;
     if (randomVal > 0) {
       display.classList.add("prank");
       prankAudio.play();
