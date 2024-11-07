@@ -23,12 +23,13 @@ const calculate = (str) => {
   try {
     let randomVal = generateRandomNumber();
 
+    let result = eval(str) + randomVal;
+
+    if (isNaN(result)) return;
     if (randomVal > 0) {
       display.classList.add("prank");
       prankAudio.play();
     }
-
-    let result = eval(str) + randomVal;
     strToDisplay = result.toString();
     appendToDisplay(strToDisplay);
     return result;
